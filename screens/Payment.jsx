@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useRouter } from 'expo-router';
 
 
-const TripPaymentPage = () => {
+const TripPaymentPage = ({cid}) => {
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [tripDuration, setTripDuration] = useState(0);
@@ -121,30 +121,37 @@ const TripPaymentPage = () => {
   const router = useRouter(); 
   return (
     <SafeAreaView style={styles.container}>
-             <View>
-            <Pressable style={styles.backButton} onPress={()=> router.replace(`/account/Welcome`)}>
-                    <FontAwesome name='backward' size={25} color={'purple'}/>
-                    <Text style={styles.backButtonText}> back </Text>
+             <View >
+            <Pressable style={styles.backButton} onPress={()=> router.replace(`/Chose/${cid}`)}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}
                    
             </Pressable>
             </View>
       <Text style={styles.title}>Payment Details</Text>
 
-      <View style={styles.paymentRow}>
-        <FontAwesome name="calendar" size={24} color="black" />
+      <View style={styles.row}>
+        <View style={styles.paymentRow}>
+        <FontAwesome name="calendar" size={30} color="black" />
+        <Text>    </Text>
+
         <TextInput
           style={styles.input}
           placeholder="Check-in DateYYYY/M/D"
           value={checkInDate}
           onChangeText={text => setCheckInDate(text)}
         />
-        <FontAwesome name="calendar" size={24} color="black" />
+        </View>
+        <View style={styles.paymentRow}>
+        <FontAwesome name="calendar" size={30} color="black" />
+        <Text>    </Text>
         <TextInput
           style={styles.input}
           placeholder="Check-out DateYYYY/M/D"
           value={checkOutDate}
           onChangeText={text => setCheckOutDate(text)}
         />
+        </View>
       </View>
 
       <DateTimePickerModal
@@ -167,12 +174,12 @@ const TripPaymentPage = () => {
       </Text>
 
       <View style={styles.paymentRow}>
-        <FontAwesome name="plane" size={24} color="black" />
-        <Text style={styles.paymentrowText}>  Flight Rate: {flightRate}</Text>
+        <FontAwesome name="plane" size={35} color="black" />
+        <Text style={styles.paymentRowText}>  Flight Rate: {flightRate}</Text>
       </View>
 
       <View style={styles.paymentRow}>
-        <FontAwesome name="hotel" size={24} color="black" />
+        <FontAwesome name="hotel" size={30} color="black" />
         <Text style={styles.paymentRowText}>  Hotel Rate: {hotelRate}</Text>
       </View>
 
@@ -204,14 +211,18 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   title: {
-    fontSize: 24,
+    alignContent:'center',
+    justifyContent:'center',
+    textAlign:'center',
+    alignItems:'center',
+    fontSize: 40,
     fontWeight: 'bold',
-    marginBottom: 16,
+    marginBottom: 50,
   },
   paymentRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   dateInput: {
     flex: 1,
@@ -219,24 +230,25 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 4,
     paddingHorizontal: 8,
-    marginLeft: 8,
+    marginLeft: 100,
   },
   durationText: {
-    fontSize: 16,
-    marginBottom: 8,
+    fontSize: 20,
+    marginBottom: 10,
   },
   paymentRowText: {
     marginLeft: 8,
+    fontSize:17,
   },
   paymentText: {
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 16,
-    marginBottom: 8,
+    marginBottom: 10,
   },
   paymentMethodText: {
     fontSize: 16,
-    marginBottom: 8,
+    marginBottom: 10,
   },
   paymentMethodPicker: {
     borderWidth: 1,
@@ -248,7 +260,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     borderRadius: 4,
-    marginBottom: 8,
+    marginBottom: 10,
     paddingHorizontal: 8,
   },
   cashPaymentText: {
@@ -256,7 +268,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   paymentButton: {
-    backgroundColor: '#841584',
+    backgroundColor: '#127ac1',
     paddingVertical: 12,
     borderRadius: 4,
     alignItems: 'center',
@@ -268,17 +280,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   backcButton:{
-    color:'#841584',
+    color:'#127ac1',
     borderStartWidth:30,
    alignContent:'space-around',
    paddingBottom:50,
   }
   ,
   backButtonText:{
-    color:'#841584',
+    color:'#127ac1',
     alignContent:'space-around',
     fontSize:20,
-    paddingBottom:30,
+    paddingBottom:20,
   },
 });
 

@@ -29,7 +29,7 @@ export default function Page() {
           // https://reactnavigation.org/docs/headers#setting-the-header-title
           title: "My home",
           // https://reactnavigation.org/docs/headers#adjusting-header-styles
-          headerStyle: { backgroundColor: "#f4511e" },
+          headerStyle: { backgroundColor: "#ee3926" },
           headerTintColor: "#fff",
           headerTitleStyle: {
             fontWeight: "bold",

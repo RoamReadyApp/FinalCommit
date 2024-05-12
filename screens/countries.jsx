@@ -61,7 +61,7 @@ const Countries = () => {
       <ScrollView  style={styles.scrollViewStyle} >
           <View style={styles.container}>
   
-          <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#40e3ec'}} >
+          <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#127ac1'}} >
              CHOOSE COUNTRY 
           </Text>
           {/* <ScrollView contentContainerStyle={styles.scrollViewStyle}> */}

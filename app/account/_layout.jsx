@@ -12,6 +12,7 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      
       <Tabs.Screen
         // Name of the route to hide.
         name="hotels"

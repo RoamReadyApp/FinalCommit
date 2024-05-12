@@ -55,7 +55,7 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#841584'}} >
+      <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#127ac1'}} >
         Log In
       </Text>
       <TextInput
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     width:200,
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor: '#841584',
+    backgroundColor: '#127ac1',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,

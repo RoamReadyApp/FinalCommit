@@ -83,7 +83,7 @@ const Profile = () => {
       await updateDoc(documentReference, data);
       // status("user updated successfully!");
       console.log("user updated successfully!");
-      router.replace(`/account/Profile`);
+      router.replace(`/Profile`);
 
       return rec;
     } catch (err) {

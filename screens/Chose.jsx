@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import {View , Text, StyleSheet , Image} from 'react-native'
+import {View , Text, StyleSheet , Image, Pressable} from 'react-native'
 import MyButton from "../Components/MyButton";
 import { Stack, router, useLocalSearchParams } from 'expo-router';
 import { useRouter  } from "expo-router";
+import { FontAwesome } from '@expo/vector-icons';
+
 
 
 const Chose = ({id}) => {
@@ -27,6 +29,13 @@ const Chose = ({id}) => {
 
     return (
         <View style={styles.container}>
+            <View>
+            <Pressable style={styles.backButton} onPress={()=> router.replace(`/account/Countries`)}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}        
+            </Pressable>
+            </View>
+            <View style={{alignItems:'center'}}>
             <View style={styles.button}>
                 <MyButton
                     onPress={handleFlights}
@@ -51,6 +60,7 @@ const Chose = ({id}) => {
                     )}
                     
                 />
+                </View>
             </View>
         </View>
     );
@@ -63,12 +73,12 @@ const styles = StyleSheet.create({
       },
   container: {
     flex: 1,
-    alignItems: "center" ,
+    // marginTop:25,
   },
   button: {
-         
+    alignItems: "center" ,
     width: '30%', 
-    height:300,
+    height:350,
     marginLeft: 30,
     marginTop: 20,
     justifyContent: "flex-end",
@@ -84,7 +94,7 @@ const styles = StyleSheet.create({
     elevation: 2 // Optional elevation for Android
   },
   buttonText: {
-    color: 'black',
+    color: 'white',
     fontSize: 18,
     textAlign: 'center'
   },
@@ -97,10 +107,19 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     marginBottom: 5,
+    color:'white'
   },
   imageButton: {
     width: 180,
     height: 250,
+  },
+  backButton:{
+    marginTop:30,
+    color:'#127ac1',
+    marginLeft:20,
+    // borderStartWidth:30,
+   alignContent:'space-around',
+   paddingBottom:10,
   },
 
 });

@@ -7,7 +7,8 @@ export default function MyButton({onPress, style, children, color}){
       onPress={onPress}
       style={({ pressed }) => [
         {
-          backgroundColor: color || "rgb(33, 150, 243)",
+
+          backgroundColor: color || "#127ac1",
           opacity: pressed ? 0.2 : 1,
         },
         styles.wrapperCustom,
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent:"center",
     borderRadius: 2,
+    marginRight:10,
     padding: 8,
   },
 });

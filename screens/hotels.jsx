@@ -17,6 +17,7 @@ import {
 } from "react-native";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { FontAwesome } from '@expo/vector-icons';
 
 
 const Hotels = ({cid}) => {
@@ -58,6 +59,13 @@ const Hotels = ({cid}) => {
   }, []);
   return (
     <ScrollView contentContainerStyle={styles.scrollViewStyle}>
+      <View >
+            <Pressable style={styles.backButton} onPress={()=> router.replace(`/Chose/${cid}`)}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}
+                   
+            </Pressable>
+            </View>
       {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
@@ -81,7 +89,7 @@ const Hotels = ({cid}) => {
                 <Text>No Image</Text>
               )}
               <TouchableOpacity
-                onPress={() => {}}
+                onPress={() => router.replace(`/Payment/${cid}`)}
                 style={styles.button}
               >
                 <Text style={styles.buttonText}>DETAILS</Text>
@@ -126,7 +134,7 @@ const styles = StyleSheet.create({
     width:200,
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor: '#841584',
+    backgroundColor: '#127ac1',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -137,9 +145,17 @@ const styles = StyleSheet.create({
     elevation: 2 // Optional elevation for Android
   },
   buttonText: {
+    backgroundColor:'#127ac1',
     color: 'white',
     fontSize: 16,
     textAlign: 'center'
+  },
+  backButton:{
+    color:'#127ac1',
+    // borderStartWidth:30,
+   alignContent:'space-around',
+   paddingBottom:20,
+   marginLeft:-180,
   },
 });
 
