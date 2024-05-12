@@ -13,6 +13,7 @@ import {
 } from "react-native";
 // import { Button, TouchableOpacity } from "react-native-web";
 import { TouchableOpacity } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
 
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
@@ -90,7 +91,14 @@ const Hotels = () => {
   
     return (
     <View style={styles.container}>
-      <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#841584'}} >
+      <View >
+            <Pressable style={styles.backButton} onPress={()=> router.replace('/Admin/Home')}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}
+                   
+            </Pressable>
+            </View>
+      <Text  style={{fontSize: 50,textAlign: "center" , marginBottom:20 , color:'#127ac1'}} >
                 ADD COUNTRY 
       </Text>
        <TouchableOpacity
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
       width:200,
       justifyContent:"center",
       alignItems:"center",
-      backgroundColor: '#841584',
+      backgroundColor: '#127ac1',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
@@ -169,7 +177,7 @@ const styles = StyleSheet.create({
       height:100,
       justifyContent:"center",
       alignItems:"center",
-      backgroundColor: '#841584',
+      backgroundColor: '#127ac1',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
@@ -178,6 +186,13 @@ const styles = StyleSheet.create({
       shadowOpacity: 1, // Optional shadow for iOS
       shadowRadius: 1, // Optional shadow for iOS
       elevation: 2 // Optional elevation for Android
+    },
+    backButton:{
+      color:'#127ac1',
+      // borderStartWidth:30,
+     alignContent:'space-around',
+     paddingBottom:30,
+     marginLeft:-180,
     },
     buttonText: {
       color: 'white',

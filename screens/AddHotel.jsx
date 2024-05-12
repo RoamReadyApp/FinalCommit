@@ -1,5 +1,5 @@
 import React, { useState ,useEffect } from "react";
-import { View, TextInput, Button, Alert, Image , StyleSheet ,Text, TouchableOpacity} from "react-native";
+import { View, TextInput, Button, Alert, Image , StyleSheet ,Text, TouchableOpacity, Pressable} from "react-native";
 import {
   getFirestore,
   collection,
@@ -9,6 +9,8 @@ import {
   getDocs,
 } from "firebase/firestore";
 import firebase from "firebase/compat/app";
+import { FontAwesome } from '@expo/vector-icons';
+
 import {
   getStorage,
   ref,
@@ -19,6 +21,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as FileSystem from "expo-file-system";
 import { Picker } from "@react-native-picker/picker";
+import { router } from "expo-router";
 const AddHotel = () => {
   const [productName, setProductName] = useState("");
   const [SinglePrice, setSinglePrice] = useState("");
@@ -146,6 +149,13 @@ const AddHotel = () => {
 
   return (
     <View style={styles.container}>
+      <View >
+            <Pressable style={styles.backButton} onPress={()=> router.replace('/Admin/Home')}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}
+                   
+            </Pressable>
+            </View>
       <Picker
         // style={{ borderWidth: 1, padding: 10, marginBottom: 10 ,marginHorizontal:190, width: 400 , borderRadius: 5,}}
         style={styles.button}
@@ -239,7 +249,7 @@ const styles = StyleSheet.create({
       width:200,
       justifyContent:"center",
       alignItems:"center",
-      backgroundColor: '#841584',
+      backgroundColor: '#127ac1',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
@@ -251,6 +261,13 @@ const styles = StyleSheet.create({
       elevation: 2, // Optional elevation for Android
       marginTop:5,
       marginBottom:10,
+    },
+    backButton:{
+      color:'#127ac1',
+      // borderStartWidth:30,
+     alignContent:'space-around',
+     paddingBottom:30,
+     marginLeft:-180,
     },
     button1: {
       width:200,

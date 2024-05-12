@@ -11,13 +11,22 @@ import {
   StyleSheet,
   Alert,
 } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
+
+
 const AdminCountryTochoose = () => {
   return (
     
     <ScrollView  style={styles.scrollViewStyle} >
         <View style={styles.container}>
         {/* <MaterialIcons name="person-pin-circle" size={50} color="black" /> */}
-
+        <View >
+            <Pressable style={styles.backButton} onPress={()=> router.replace('/Admin/Home')}>
+                    <FontAwesome name='chevron-circle-left' size={35} color={'#127ac1'}/>
+                    {/* <Text style={styles.backButtonText}> </Text> */}
+                   
+            </Pressable>
+            </View>
 
         <Text  style={{fontSize: 50,textAlign: "center" ,marginTop:200, marginBottom:70 , color:'#40e3ec'}} >
         <Pressable style={({ pressed }) => [
@@ -77,7 +86,7 @@ const styles = StyleSheet.create({
     width:200,
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor: '#841584',
+    backgroundColor: '#127ac1',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -87,6 +96,13 @@ const styles = StyleSheet.create({
     shadowRadius: 1, // Optional shadow for iOS
     elevation: 2 // Optional elevation for Android
 
+  }, 
+  backButton:{
+    color:'#127ac1',
+    // borderStartWidth:30,
+   alignContent:'space-around',
+   paddingBottom:30,
+   marginLeft:-180,
   },
   buttonText: {
     color: 'white',

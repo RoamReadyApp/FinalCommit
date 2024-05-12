@@ -19,6 +19,7 @@ const AdminHome = () => {
     return (
         <SafeAreaView>
       <ScrollView  >
+
           <View style={styles.container}>
           {/* <MaterialIcons name="person-pin-circle" size={50} color="black" /> */}
 
@@ -86,7 +87,7 @@ const AdminHome = () => {
       width:200,
       justifyContent:"center",
       alignItems:"center",
-      backgroundColor: '#841584',
+      backgroundColor: '#127ac1',
       paddingVertical: 10,
       paddingHorizontal: 20,
       borderRadius: 5,
